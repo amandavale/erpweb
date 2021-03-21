@@ -146,7 +146,7 @@
 						$list['cpf_cnpj_negrito'] = preg_replace("'$filtro'i","<span class='substring_negrito'>\\0</span>", $list['cpf_cnpj']);
 
 						if ($mostraDetalhes == 1)
-							$list['info_cliente'] = utf8_encode("<table class=tb4cantos width=40%><tr><td>Endereço: " . $list['logradouro'] . " " . $list['numero'] . " " . $list['complemento'] . " CEP " .  $list['cep'] . "</td></tr><tr><td>Bairro: " . $list['nome_bairro'] . " " . $list['nome_cidade'] . " " . $list['sigla_estado'] . "</td></tr><tr><td>Telefone: " . $form->FormataTelefoneParaExibir($list['telefone_cliente']) . "</td></tr><tr><td>CPF/CNPJ: " . $list['cpf_cnpj'] . " Cliente bloqueado: " . $list['cliente_bloqueado'] . "</td></tr></table>");
+							$list['info_cliente'] = utf8_encode("<table class=tb4cantos width=40%><tr><td>Endere&ccedil;o: " . $list['logradouro'] . " " . $list['numero'] . " " . $list['complemento'] . " CEP " .  $list['cep'] . "</td></tr><tr><td>Bairro: " . $list['nome_bairro'] . " " . $list['nome_cidade'] . " " . $list['sigla_estado'] . "</td></tr><tr><td>Telefone: " . $form->FormataTelefoneParaExibir($list['telefone_cliente']) . "</td></tr><tr><td>CPF/CNPJ: " . $list['cpf_cnpj'] . " Cliente bloqueado: " . $list['cliente_bloqueado'] . "</td></tr></table>");
 
 						?>
 						<tr onselect="

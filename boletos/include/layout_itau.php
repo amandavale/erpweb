@@ -33,6 +33,18 @@
 	$dadosboleto["label_cedente"] = (isset($dadosboleto["label_cedente"])?ucfirst($dadosboleto["label_cedente"]):'Cedente');
 
 	$dadosboleto["label_sacado"] = (isset($dadosboleto["label_sacado"])?ucfirst($dadosboleto["label_sacado"]):'Sacado');
+
+	$logo = '';
+	switch($dadosboleto['logo']){
+		case 'itau':
+			$logo = "../boletos/imagens/logoitau.jpg";
+			$width="136";
+		break;
+		case 'sos':
+			$logo = "../common/img/sos_menor.png";
+			$width="97";
+		break;
+	}
 ?>
 
 <!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.0 Transitional//EN'>
@@ -107,12 +119,11 @@ do <?php echo $dadosboleto["label_sacado"]; ?></b></div></TD></tr></tbody></tabl
   </tr>
 </table -->
 
-
 <table cellspacing=0 cellpadding=0 width=666 border=0>
 	<tr>
-		<td class=cp width=150  style="text-align:center"> 
+		<td class=cp width="<?php echo $width; ?>"  style="text-align:center"> 
 			<span>
-  				<IMG src="../common/img/sos_menor.png" width="97" height="50" border=0 >
+  				<IMG src= "<?php echo $logo; ?>" width="<?php echo $width; ?>" height="50" border=0 >
   			</span>
   		</td>
   		
@@ -252,9 +263,9 @@ Valor cobrado</td></tr><tr><td class=cp valign=top width=7 height=12><img height
 
 <table cellspacing=0 cellpadding=0 width=666 border=0>
 	<tr>
-		<td class=cp width=97> 
+		<td class=cp width=150> 
 			<span class="campo">
-  				<img src="../common/img/sos_menor.png" width=97 height=50 border=0 />
+  				<img src= "<?php echo $logo; ?>" width="<?php echo $width; ?>" height=50 border=0 />
   			</span>
   		</td>
   		
@@ -416,7 +427,7 @@ Valor cobrado</td></tr><tr><td class=cp valign=top width=7 height=12><img height
 
 <br>
 <table cellspacing=0 cellpadding=0 width=666 border=0><tr><td class=cp width=150> 
-  <span class="campo"><IMG src="<?php echo $dadosboleto['logo']?>" width="150" height="40" 
+  <span class="campo"><IMG src="<?php echo $logo ?>" width="<?php echo $width; ?>" height="50" 
       border=0></span></td>
 <td width=3 valign=bottom><img height=22 src=../boletos/imagens/3.png width=2 border=0></td><td class=cpt width=58 valign=bottom><div align=center><font class=bc><?php echo $dadosboleto["codigo_banco_com_dv"]?></font></div></td><td width=3 valign=bottom><img height=22 src=../boletos/imagens/3.png width=2 border=0></td><td class=ld align=right width=453 valign=bottom><span class=ld> 
 <span class="campotitulo">

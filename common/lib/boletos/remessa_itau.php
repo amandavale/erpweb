@@ -34,13 +34,13 @@ class RemessaItau{
 	
 	private $movimentos_remessa;
 	
-	public function __construct($filial, $movimentos_remessa, $sequencia, $nossoNumero){
+	public function __construct($filial, $movimentos_remessa, $sequencia, $nossoNumero, $cedente){
 		
 		$this->conta_filial = new conta_filial();
 		
 		$this->movimentos_remessa = $movimentos_remessa;
 		
-		$this->defineInformacoesEmpresa($filial);
+		$this->defineInformacoesEmpresa($filial, $cedente);
 
 		$this->sequencia = $sequencia;
 	}
@@ -96,10 +96,14 @@ class RemessaItau{
 	 * Busca no banco de dados as informações relacionadas ao nome, cnpj e 
 	 * conta bancária da empresa
 	 * @param integer $filial - ID da filial relacionada às informações
+	 * @param string $cedente - Cedente 	 
 	 */
-	private function defineInformacoesEmpresa($filial){
-		
-		$dados_empresa = $this->conta_filial->buscaContaPorBanco(341, $filial);
+	private function defineInformacoesEmpresa($filial, $cedente){
+
+		if(!isset($cedente)){
+			$cedente = '';
+		}		
+		$dados_empresa = $this->conta_filial->buscaContaPorBanco(341, $filial, $cedente);
 
 		$this->nome_empresa = substr($dados_empresa['conta_cedente'],0,30);
 		$this->cnpj_empresa = str_replace(array('.','-','/'), '',$dados_empresa['conta_cnpj']);

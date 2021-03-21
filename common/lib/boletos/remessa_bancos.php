@@ -32,6 +32,10 @@ require_once  $currentDir . '/remessa_sicoob.php';
 					$this->banco = new RemessaItau($filial, $movimentos_remessa, $sequencia, $nossoNumero);
 				break;
 
+				case 'IE':
+					$this->banco = new RemessaItau($filial, $movimentos_remessa, $sequencia, $nossoNumero,'estrela da mata');
+				break;				
+
 				case 'BR':
 					/** Remessa do banco Bradesco para todos o condoínio Mila Center **/
 					$this->banco = new RemessaBradesco($filial, $movimentos_remessa, $sequencia, $nossoNumero, 'mila center');

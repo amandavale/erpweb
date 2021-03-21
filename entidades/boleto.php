@@ -180,15 +180,25 @@
 			include "../boletos/include/layout_sicoob.php";			
 		}
 
-
 		/**
 		 * Método responsável pela geração de boleto do itaú
 		 * para clientes que não são condomínio
 		 * @param array $dadosboleto - Dados do boleto a ser gerado
 		 */
-		function itau($dadosboleto, $condominio = false, $descricao_condominio = array(), $descricao_caixa = ''){
+		function itau($dadosboleto, $condominio = false, $descricao_condominio = array(), $descricao_caixa = '', $cedente = ''){
 
-			$dadosboleto = $this->retornaDadosBoleto($dadosboleto, 341);
+			switch($cedente){
+				case 'itauestrela':
+					$cedente = 'estrela da mata';
+					$dadosboleto['logo'] = 'itau';
+				break;
+				case 'itau':
+					$cedente = 'sos prestadora';
+					$dadosboleto['logo'] = 'sos';
+				break;
+			}
+
+			$dadosboleto = $this->retornaDadosBoleto($dadosboleto, 341, $cedente);
 			
 			$data_venc = $dadosboleto["data_vencimento"];
 			
@@ -199,7 +209,6 @@
 											$dadosboleto['nosso_numero'] . '-' .
 											$dadosboleto['dac_nosso_numero'];
 			
-			$dadosboleto['logo'] = "../boletos/imagens/itau.jpeg";
 			$dadosboleto['local_pagamento'] = "ATÉ O VENCIMENTO, PAGUE EM QUALQUER BANCO OU CORRESPONDENTE NÃO BANCÁRIO. " .
 				"\nAPÓS O VENCIMENTO, ACESSE ITAU.COM.BR/BOLETOS E PAGUE EM QUALQUER BANCO OU CORRESPONDENTE NÃO BANCÁRIO.";
 			$dadosboleto['label_cedente'] = 'Benefici&aacute;rio';

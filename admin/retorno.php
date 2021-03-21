@@ -93,8 +93,8 @@
           			case "adicionar":
 
 			      		$lista_bancos = array(
-			      				'id_banco' => array('CE','BR','BT','I', 'S'),
-			      				'nome_banco' => array('Caixa Econ&ocirc;mica Federal','Bradesco Mila Center', 'Bradesco SOS Prestadora', 'Ita&uacute;', 'Sicoob')
+			      				'id_banco' => array('CE','BR','BT','I', 'IE', 'S'),
+			      				'nome_banco' => array('Caixa Econ&ocirc;mica Federal','Bradesco Mila Center', 'Bradesco SOS Prestadora', 'Ita&uacute;', 'Ita&uacute; Estrela da Mata ', 'Sicoob')
 			      		);
 			      		$smarty->assign('lista_bancos', $lista_bancos);
 

@@ -120,7 +120,7 @@
 								
 								/// verifica se data de vencimento "de" não é posterior à data de vencimento "até"
 								
-								$form->verificaSeDataNaoPosterior($_POST['data_vencimento_de'], 
+								$verifica_data = $form->verificaSeDataNaoPosterior($_POST['data_vencimento_de'], 
 																	$_POST['data_vencimento_ate']);
 								if(!$verifica_data){
 									$err[] = sprintf($erro_validacao['data_nao_posterior'], 
@@ -128,7 +128,7 @@
 													'de vencimento "Até"');
 								}
 							}
-							
+				
 							if(count($err) == 0){
 								
 								/// busca movimentos que devem ser enviados para o banco selecionado na tela
@@ -147,8 +147,11 @@
 											$smarty->assign('nome_banco','Caixa Econ&ocirc;mica Federal');
 											break;
 										case 'I':
-											$smarty->assign('nome_banco','Ita&uacute;');
+											$smarty->assign('nome_banco','Ita&uacute;');											
 											break;
+										case 'IE':
+											$smarty->assign('nome_banco','Ita&uacute; Estrela da Mata');
+											break;											
 										case 'BR':
 											$smarty->assign('nome_banco','Bradesco Mila Center');
 											break;
@@ -243,7 +246,7 @@
 							unset($_SESSION['movimentos_remessa']);
 							unset($_SESSION['tipo_arquivo_remessa']);
 						}
-						
+
 					break;
 
 
@@ -336,8 +339,8 @@
       		$smarty->assign("info_filial", $info_filial);
       		
       		$lista_bancos_remessa = array(
-      				'modo_recebimento' => array('CE','BR','BT', 'I','S'),
-      				'nome_banco' => array('Caixa Econ&ocirc;mica Federal','Bradesco Mila Center', 'Bradesco SOS Prestadora',  'Ita&uacute;', 'Sicoob')
+      				'modo_recebimento' => array('CE','BR','BT', 'I', 'IE', 'S'),
+      				'nome_banco' => array('Caixa Econ&ocirc;mica Federal','Bradesco Mila Center', 'Bradesco SOS Prestadora',  'Ita&uacute;', 'Ita&uacute; Estrela da Mata', 'Sicoob')
       		);
       		$smarty->assign('lista_bancos_remessa', $lista_bancos_remessa);
 
