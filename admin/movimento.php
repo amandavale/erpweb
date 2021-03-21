@@ -229,8 +229,8 @@ else {
 				case "listar":
 
 		      		$lista_bancos = array(
-		      				'id_banco' => array('sicoob','bradescomila','bradescosos', 'caixa','itau','santander'),
-		      				'nome_banco' => array('Sicoob','Bradesco Mila Center', 'Bradesco SOS Prestadora', 'Caixa Econ&ocirc;mica Federal', 'Ita&uacute;', 'Santander')
+		      				'id_banco' => array('sicoob','bradescomila','bradescosos', 'caixa','itau','itauestrela', 'santander'),
+		      				'nome_banco' => array('Sicoob','Bradesco Mila Center', 'Bradesco SOS Prestadora', 'Caixa Econ&ocirc;mica Federal', 'Ita&uacute;', 'Ita&uacute; Estrela da Mata', 'Santander')
 		      		);
 		      		$smarty->assign('lista_bancos', $lista_bancos);
 
@@ -701,6 +701,35 @@ else {
 
 						break;
 
+
+					case 'itauestrela':
+
+						if($info['idapartamento']){
+						
+							require_once dirname(dirname(__FILE__)) . '/entidades/demonstrativo_apartamento.php';
+
+							$demonstrativo_apartamento = new demonstrativo_apartamento();
+
+							$demonstrativo = $demonstrativo_apartamento->getByApartamento($info['idapartamento']);
+
+							$dadosboleto['demonstrativo1'] = $demonstrativo['demonstrativo'];
+
+						}
+
+						if(isset($_POST['demonstrativo']) && $_POST['demonstrativo']){
+
+							/// Retira quebras de linha do início e do fim do demonstrativo e deixa apenas uma
+							#$_POST['demonstrativo'] = trim($_POST['demonstrativo'],"<p>");
+							$_POST['demonstrativo'] = str_replace(array("<p>","</p>"),array("<br />",""),$_POST['demonstrativo']);
+
+							$dadosboleto['demonstrativo2'] = $_POST['demonstrativo'];									
+						}
+						
+						$boleto->itau($dadosboleto,false,array(),'',$_GET['banco']);
+
+
+						break;
+
 					case 'caixa':
 					case 'itau':
 					case 'sicoob':
@@ -932,6 +961,33 @@ else {
 								}
 
 								$boleto->bradesco($dadosboleto,false,array(),'',$_GET['banco']);
+
+								break;
+
+							case 'itauestrela':
+
+								if($info['idapartamento']){
+								
+									require_once dirname(dirname(__FILE__)) . '/entidades/demonstrativo_apartamento.php';
+
+									$demonstrativo_apartamento = new demonstrativo_apartamento();
+
+									$demonstrativo = $demonstrativo_apartamento->getByApartamento($info['idapartamento']);
+
+									$dadosboleto['demonstrativo1'] = $demonstrativo['demonstrativo'];
+
+								}
+
+								if(isset($_POST['demonstrativo']) && $_POST['demonstrativo']){
+	
+                                    /// Retira quebras de linha do início e do fim do demonstrativo e deixa apenas uma
+	                                #$_POST['demonstrativo'] = trim($_POST['demonstrativo'],"<p>");
+               		                $_POST['demonstrativo'] = str_replace(array("<p>","</p>"),array("<br />",""),$_POST['demonstrativo']);
+
+									$dadosboleto['demonstrativo2'] = $_POST['demonstrativo'];									
+								}
+
+								$boleto->itau($dadosboleto,false,array(),'',$_GET['banco']);
 
 								break;
 
