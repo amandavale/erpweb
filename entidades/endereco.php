@@ -255,8 +255,6 @@
 									 LEFT OUTER JOIN {$conf['db_name']}estado EST ON EDR.idestado=EST.idestado
 							WHERE CLI.idcliente = $idcliente";
 
-var_dump($list_sql);
-
 			//manda fazer a paginação
 			$list_q = $db->query($list_sql);
 
