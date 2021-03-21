@@ -1,0 +1,1 @@
+INSERT INTO `soserpweb`.`programa` (`idprograma`, `idsubmodulo`, `nome_programa`, `descricao_programa`, `nome_arquivo`, `parametros_arquivo`, `define_adicionar`, `define_editar`, `define_excluir`, `define_listar`, `ordem_programa`) VALUES (NULL, '405', 'Saldo', 'Saldo', 'relatorio_caixa', '?ac=saldo', '0', '0', '0', '1', '6');

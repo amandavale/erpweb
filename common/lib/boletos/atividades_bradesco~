@@ -1,0 +1,47 @@
+
+- Alterar tela de geração de boletos para incluir opção de banco Bradesco. (Financeiro -> Movimento)
+
+OK
+
+- Arrumar tela de geração de boletos para manter nome do banco quando a tela for recarregada.
+
+OK
+
+- Alterar tela de retorno para selecionar caixa econômica ou bradesco
+
+OK
+
+
+- Criar arquivo common/lib/boletos/retorno_bradesco.php
+
+OK
+
+- Incluir na tela cadastro de apartamento campo com detalhamento do boleto. Salvar o campo digitado e mostrar selecionado sempre que for gerar boleto para o cliente.
+
+OK
+
+- Criar diferenciação para gerar boleto do bradesco. Quando for gerar boleto do bradesco é necessário criar arquivo de funções do bradesco porque o nosso número é diferente para cada banco.
+  Sequência de arquivos: admin/movimento.php?ac=gerar_boleto -> entidades/boleto.php -> caixa(), bradesco(). 
+
+OK
+
+- Alterar cadastro e alteração de filial para fornecer dados da conta: cedente, CNPJ
+
+OK
+
+- Criar conta do bradesco para a filial
+
+OK
+
+- Na hora de gerar o boleto verificar se os dados novos estão preenchidos. Se estiverem eles serão usados.
+
+OK
+
+
+- Conferir geração do nosso número
+
+- Incluir no cadastro de conta o número da carteira.
+
+- Verificar se o código deve ser melhorado e padronizado. Atualmente os dados das contas caixa e santander são digitados no código e não buscados no banco de dados.
+
+

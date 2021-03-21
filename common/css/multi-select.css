@@ -1,0 +1,51 @@
+.multiselectable {
+	display:block; 
+	overflow: hidden; 
+	width: 85%; 
+	padding-top: 20px;
+}
+
+.multiselectable select, .multiselectable div {
+	width: 450px;
+	float:left;
+}
+
+.multiselectable div * {
+	display: block; 
+	margin: 0 auto;
+}
+
+.multiselectable div {
+	display: inline;
+}
+
+.multiselectable .m-selectable-controls {
+	margin-top: 3em; 
+	width: 50px; 
+}
+
+.multiselectable .m-selectable-controls button {
+	margin-top: 1em; 
+}
+
+
+.multis-right {
+	background:url(../img/seta_direita.png) no-repeat center;
+    cursor:pointer;
+    border: none;	
+  	height: 24px;
+    width: inherit;    
+}
+
+.multis-left {
+	background:url(../img/seta_esquerda.png) no-repeat center;
+    cursor:pointer;
+    border: none;	
+  	height: 24px;
+    width: inherit    
+
+}
+
+#multis-right input, #multis-left input {
+	border: none;
+}

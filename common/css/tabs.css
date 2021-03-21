@@ -1,0 +1,57 @@
+/*
+As definições abaixo pertencem as caracteristicas gerais dos TABS,
+como cores, etc...
+*/
+
+.anchors {
+    display: inline-block;
+    _height: 1%;
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0px;
+}
+
+.anchors:after {
+    display: block;
+    clear: both;
+    content: " ";
+    
+}
+
+.anchors li {
+    float: left;
+    margin: 0;
+    border: 1px solid #585858;
+    
+}
+
+
+.anchors a {
+	
+    float: left;
+    display: block;
+    position: relative;
+    top: 1px;
+    border: 1px solid #eaeaea;
+    z-index: 2;
+    padding: 2px 5px 2px;
+    text-decoration: none;
+    color: #585858;
+    
+    
+}
+
+
+.anchors .on a, .anchors a:hover, .anchors a:focus, .anchors a:active,
+.anchor {
+    background: #F8F8F8;
+    border: 1px solid #585858;
+    text-decoration: none;
+}
+
+
+.anchor {
+    padding: 10px;
+}
+
+

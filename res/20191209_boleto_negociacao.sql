@@ -1,0 +1,2 @@
+ALTER TABLE `movimento` ADD `negociacao` ENUM( '0', '1' ) NULL COMMENT 'Indica se o boleto é de negociação',
+ADD `negociacaoObservacoes` TEXT NULL COMMENT 'Observações relacionadas à negociação do boleto'
