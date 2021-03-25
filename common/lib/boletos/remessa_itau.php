@@ -106,6 +106,8 @@ class RemessaItau{
 		$dados_empresa = $this->conta_filial->buscaContaPorBanco(341, $filial, $cedente);
 
 		$this->nome_empresa = substr($dados_empresa['conta_cedente'],0,30);
+		$this->nome_empresa = str_pad($this->nome_empresa,30,' ',STR_PAD_LEFT);
+
 		$this->cnpj_empresa = str_replace(array('.','-','/'), '',$dados_empresa['conta_cnpj']);
 		
 		$this->agencia = $dados_empresa['agencia_filial'];
