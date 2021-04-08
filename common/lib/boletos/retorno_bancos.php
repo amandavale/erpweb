@@ -40,6 +40,10 @@ require_once dirname(__FILE__) . '/retorno_sicoob.php';
 					$this->banco = new RetornoItau($filial, $conteudo_retorno);
 					break;
 
+				case 'IE':
+					$this->banco = new RetornoItau($filial, $conteudo_retorno,'estrela da mata');
+				break;				
+
 				case 'S':
 					$this->banco = new RetornoSicoob($filial, $conteudo_retorno);
 					break;

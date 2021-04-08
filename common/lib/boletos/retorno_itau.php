@@ -30,13 +30,13 @@ class RetornoItau{
 	private $descricoes_movimentos;
 	
 	
-	public function __construct($filial, $conteudo_retorno){
+	public function __construct($filial, $conteudo_retorno, $cedente){
 		
 		$this->conta_filial = new conta_filial();
 		
 		$this->conteudo_retorno = $conteudo_retorno;
 		
-		$this->defineInformacoesEmpresa($filial);
+		$this->defineInformacoesEmpresa($filial, $cedente);
 		
 		$this->descricoes_movimentos = $this->retornaDescricaoMovimento();
 	}
@@ -335,9 +335,9 @@ class RetornoItau{
 	 * conta bancária da empresa
 	 * @param integer $filial - ID da filial relacionada às informações
 	 */
-	private function defineInformacoesEmpresa($filial){
+	private function defineInformacoesEmpresa($filial, $cedente){
 		
-		$dados_empresa = $this->conta_filial->buscaContaPorBanco(341,$filial);
+		$dados_empresa = $this->conta_filial->buscaContaPorBanco(341,$filial,$cedente);
 
 		$this->nome_empresa = substr($dados_empresa['nome_filial'],0,30);
 		$this->cnpj_empresa = str_replace(array('.','-','/'), '',$dados_empresa['cnpj_filial']);
